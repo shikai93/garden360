@@ -3,26 +3,23 @@
 
 import {ReactInstance} from 'react-360-web';
 
-import {Surface} from 'react-360-web';
-const myCylinderSurface = new Surface(
-  4000, /* width */
-  600, /* height */
-  Surface.SurfaceShape.Cylinder /* shape */
-);
-
+import {TooltipModule} from './modules/toolTipModule';
 import 'webvr-polyfill';
 // WebVRPolyfill.InstallWebVRSpecShim();
+
+export let r360;
+let toolTipModule = new TooltipModule ()
 function init(bundle, parent, options = {}) {
-  const r360 = new ReactInstance(bundle, parent, {
-    // Add custom options here
+  r360 = new ReactInstance(bundle, parent, {
     fullScreen: true,
+    nativeModules: [toolTipModule],
     ...options,
   });
 
   // Render your app content to the default cylinder surface
-  r360.renderToSurface(
-    r360.createRoot('garden360', { /* initial props */ }),
-    myCylinderSurface
+  r360.renderToSurface (
+    r360.createRoot ('MainComponent'),
+    r360.getDefaultSurface ()
   );
 
   // Load the initial environment
