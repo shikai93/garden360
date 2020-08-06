@@ -2,7 +2,7 @@ import React from 'react';
 import {asset, Image, View, StyleSheet, NativeModules, Text, VrButton} from 'react-360';
 
 const tooltipModule = NativeModules.TooltipModule;
-
+const sceneModule = NativeModules.SceneModule;
 export default class TooltipComponent extends React.Component {
   state = {
     infoImage: this.props.infoImg,
@@ -26,12 +26,8 @@ export default class TooltipComponent extends React.Component {
 
   onMouseClick() {
     if (this.state.isWayPoint) {
-        this.setState ({
-            width: this.props.width,
-            height: this.props.height,
-            isMouseOver : false,
-            showInfo : false,
-        });
+        // uncomment until when images garden360.jpg and canteen360.jpg are ready
+        // sceneModule.setScene(this.props.destination)
         tooltipModule.setTooltips(this.props.destination)
         return
     }

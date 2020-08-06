@@ -4,6 +4,7 @@
 import {ReactInstance} from 'react-360-web';
 
 import {TooltipModule} from './modules/toolTipModule';
+import {SceneModule} from './modules/sceneModule';
 import 'webvr-polyfill';
 // WebVRPolyfill.InstallWebVRSpecShim();
 
@@ -12,7 +13,7 @@ let toolTipModule = new TooltipModule ()
 function init(bundle, parent, options = {}) {
   r360 = new ReactInstance(bundle, parent, {
     fullScreen: true,
-    nativeModules: [toolTipModule],
+    nativeModules: [toolTipModule, new SceneModule()],
     ...options,
   });
 
@@ -24,6 +25,7 @@ function init(bundle, parent, options = {}) {
 
   // Load the initial environment
   r360.compositor.setBackground(r360.getAssetURL('360_world.jpg'));
+  // r360.compositor.setBackground(r360.getAssetURL('canteen360.jpg'));
 }
 
 window.React360 = {init};

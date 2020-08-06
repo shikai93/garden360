@@ -1,6 +1,8 @@
 export default {
     Canteen : {
         name : "Canteen",
+        background : "canteen360.jpg",
+        format : "2D",
         navigationPoints : [
             {
                 width : 100,
@@ -32,6 +34,8 @@ export default {
     },
     Garden : {
         name : "Garden",
+        background : "garden360.jpg",
+        format : "2D",
         navigationPoints : [
             {
                 width : 100,
