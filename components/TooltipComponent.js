@@ -27,7 +27,7 @@ export default class TooltipComponent extends React.Component {
   onMouseClick() {
     if (this.state.isWayPoint) {
         // uncomment until when images garden360.jpg and canteen360.jpg are ready
-        // sceneModule.setScene(this.props.destination)
+        sceneModule.setScene(this.props.destination)
         tooltipModule.setTooltips(this.props.destination)
         return
     }

@@ -5,15 +5,16 @@ import {ReactInstance} from 'react-360-web';
 
 import {TooltipModule} from './modules/toolTipModule';
 import {SceneModule} from './modules/sceneModule';
-import 'webvr-polyfill';
+// import 'webvr-polyfill';
 // WebVRPolyfill.InstallWebVRSpecShim();
 
 export let r360;
 let toolTipModule = new TooltipModule ()
+let sceneModule = new SceneModule()
 function init(bundle, parent, options = {}) {
   r360 = new ReactInstance(bundle, parent, {
     fullScreen: true,
-    nativeModules: [toolTipModule, new SceneModule()],
+    nativeModules: [toolTipModule, sceneModule],
     ...options,
   });
 

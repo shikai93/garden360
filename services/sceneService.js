@@ -12,3 +12,10 @@ export function getTooltips(location) {
     navigationPoints : []
   }
 }
+
+export function getBackground(location) {
+  if ( scenes[`${location}`] && scenes[`${location}`].background ) {
+    return scenes[`${location}`].background
+  }
+  return '360_world.jpg'
+}
